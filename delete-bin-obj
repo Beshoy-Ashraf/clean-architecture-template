@@ -1,0 +1,13 @@
+#!/bin/bash
+
+baseDirectory="$(pwd)"
+
+if [ ! -d "$baseDirectory" ]; then
+    echo "Error: The current directory does not exist or is not a directory." >&2
+    exit 1
+fi
+
+find "$baseDirectory" -type d \( -name 'bin' -o -name 'obj' \) | while read -r dir; do
+    echo "Deleting: $dir"
+    rm -rf "$dir"
+done
