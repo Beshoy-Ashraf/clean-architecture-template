@@ -475,12 +475,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
-# Entities Files
-/src/TeamsMaker.Api/wwwroot/Student/
-/src/TeamsMaker.Api/wwwroot/Staff/
-/src/TeamsMaker.Api/wwwroot/Organization/
-/src/TeamsMaker.Api/wwwroot/Circle/
-
-
-# ass
+# Secrets safety net (user-secrets already keeps real values out of the repo)
+appsettings.Development.json
+appsettings.*.local.json

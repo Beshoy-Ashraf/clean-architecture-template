@@ -6,5 +6,5 @@ public interface IUnitOfWork : IDisposable
 {
       IBaseRepository<User> Users { get; }
       IUserRepository UserRepository { get; }
-      int Complete();
+      Task<int> Complete(CancellationToken cancellationToken);
 }
