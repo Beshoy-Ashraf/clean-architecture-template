@@ -8,11 +8,9 @@ using Application.Common.Interfaces;
 using Domain.Entities;
 namespace Infrastructure.Identity;
 
-public class TokenService : ITokenService
+public class TokenService(IOptions<JwtSettings> settings) : ITokenService
 {
-      private readonly JwtSettings _settings;
-
-      public TokenService(IOptions<JwtSettings> settings) => _settings = settings.Value;
+      private readonly JwtSettings _settings = settings.Value;
 
       public (string AccessToken, DateTime ExpiresAt) GenerateAccessToken(User user)
       {
