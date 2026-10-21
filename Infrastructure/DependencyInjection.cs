@@ -17,6 +17,8 @@ public static class DependencyInjection
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddScoped<ITokenService, TokenService>();
+            services.Configure<GoogleSettings>(configuration.GetSection("GoogleSettings"));
+            services.AddScoped<IGoogleAuthService, GoogleAuthService>();
             return services;
       }
 }
