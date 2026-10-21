@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Application.Authentication.Commands.Register;
 using Application.Authentication.Commands.Login;
 using Application.Authentication.Commands.RefreshToken;
+using Application.Authentication.Commands.GoogleLogin;
 
 
 [ApiController]
@@ -18,6 +19,10 @@ public class AuthController(ISender mediator) : ControllerBase
 
     [HttpPost("login")]
     public async Task<IActionResult> Login(LoginCommand command)
+        => Ok(await mediator.Send(command));
+
+    [HttpPost("google")]
+    public async Task<IActionResult> GoogleLogin(GoogleLoginCommand command)
         => Ok(await mediator.Send(command));
 
     [HttpPost("refresh")]
